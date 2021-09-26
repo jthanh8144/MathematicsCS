@@ -1,11 +1,15 @@
 #include <iostream>
 using namespace std;
 
-float a[100][100];
+double **a;
 int n;
 
 void Nhap() {
     cout << "Nhap n = "; cin >> n;
+    a = new double *[n];
+    for (int i = 0; i < n; i++) {
+        a[i] = new double [n];
+    }
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             cout << "a[" << i << "][" << j << "] = "; cin >> a[i][j];
@@ -13,7 +17,7 @@ void Nhap() {
     }
 }
 
-void Xuat(float a[][100], int n) {
+void Xuat(double **a, int n) {
     cout << endl;
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
@@ -23,12 +27,16 @@ void Xuat(float a[][100], int n) {
     }
 }
 
-float det(float a[][100], int n) {
-    int s, d = 0;
+double det(double **a, int n) {
+    int s;
+    double d = 0;
     if (n == 1) return a[0][0];
     if (n == 2) return a[0][0]*a[1][1] - a[0][1]*a[1][0];
     for (int k = 0; k < n; k++) {
-        float sm[100][100];
+        double **sm = new double *[n];
+        for (int i = 0; i < n; i++) {
+            sm[i] = new double [n];
+        }
         for (int i = 0; i < n; i++) {
             for (int j = 1;j < n; j++) {
                 if (i < k) sm[i][j-1] = a[i][j];
@@ -43,8 +51,11 @@ float det(float a[][100], int n) {
     return d;
 }
 
-float PhanBuDS(float a[][100], int n, int row, int col) {
-    float b[100][100];
+double PhanBuDS(double **a, int n, int row, int col) {
+    double **b = new double *[n];
+    for (int i = 0; i < n; i++) {
+        b[i] = new double [n];
+    }
     int x = -1, y;
     for (int i = 0; i < n; i++) {
         if (i == row)
@@ -63,13 +74,16 @@ float PhanBuDS(float a[][100], int n, int row, int col) {
     return -det(b, n - 1);
 }
 
-void NghichDao(float a[][100], int n) {
-    float d = det(a, n);
+double** NghichDao(double **a, int n) {
+    double d = det(a, n);
     if (d == 0) {
         cout << "Ma tran a khong co nghich dao!" << endl;
     }
     else {
-        float b[100][100];
+        double **b = new double *[n];
+        for (int i = 0;i < n; i++) {
+            b[i] = new double [n];
+        }
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 b[i][j] = PhanBuDS(a, n, i, j);
@@ -77,7 +91,7 @@ void NghichDao(float a[][100], int n) {
         }
         for (int i = 0; i < n - 1; i++) {
             for (int j = i + 1; j < n; j++) {
-                float t = b[i][j];
+                double t = b[i][j];
                 b[i][j] = b[j][i];
                 b[j][i] = t;
             }
@@ -87,15 +101,18 @@ void NghichDao(float a[][100], int n) {
                 b[i][j] /= d;
             }
         }
-        cout << "Ma tran nghich dao cua a la:";
-        Xuat(b, n);
+        return b;
     }
+    return nullptr;
 }
 
 int main() {
     Nhap();
     Xuat(a, n);
-    cout << "det(a) = " << det(a, n) << endl;
-    NghichDao(a, n);
+    float d =  det(a, n);
+    cout << "det(a) = " << d << endl;
+    if (d != 0) {
+        Xuat(NghichDao(a, n), n);
+    }
     return 0;
 }
