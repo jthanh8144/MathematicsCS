@@ -1,0 +1,25 @@
+1. RS
+    - Hệ thống RS mô phỏng lại quá trình ra quyết định của người dùng theo hai cách tiếp cận chính là khuyến nghị 
+dựa trên lọc theo nội dung và khuyến nghị dựa trên lọc theo cộng tác.
+
+    - Nhằm giải quyết bài toán khuyến nghị nói trên có hai cách tiếp cận chính là lọc cộng tác dựa trên bộ nhớ 
+(Memory-based CF/Neighborhood-based CF) và lọc cộng tác dựa trên mô hình (Model-based CF), SVD được áp dụng 
+trong phương pháp cộng tác dựa trên mô hình ở kĩ thuật Hoàn thiện ma trận.
+
+    - Keshavan và cộng sự [19] đã sử dụng kỹ thuật SVD trong thuật toán OptSpace để giải quyết vấn đề hoàn thành 
+ma trận. Kết quả thí nghiệm của họ cho thấy SVD có thể cung cấp một ước tính ban đầu đáng tin cậy cho việc mở 
+rộng không gian con có thể được tinh chỉnh thêm bằng cách giảm độ dốc trên đa tạp Grassmannian.
+2. PCA
+    - PCA và SVD là các phương pháp tiếp cận giảm kích thước thường được sử dụng trong phân tích dữ liệu khám phá 
+(EDA) và Học máy. Cả hai đều là các phương pháp giảm số chiều tuyến tính cổ điển nhằm tìm kiếm sự kết hợp tuyến 
+tính của các đối tượng trong ma trận dữ liệu chiều cao ban đầu để xây dựng biểu diễn có ý nghĩa của tập dữ liệu.
+    - Kết quả từ PCA và SVD có thể tương tự nhau trong một số dữ liệu.
+    - PCA nhằm mục đích tìm các trục trực giao không tương quan tuyến tính, còn được gọi là các thành phần chính 
+(PC) trong không gian m chiều để chiếu các điểm dữ liệu lên các PC đó.
+    - SVD là một phương pháp phân rã khác cho cả ma trận thực và ma trận phức tạp. Nó phân hủy một ma trận thành 
+tích của hai ma trận unita ( U , V *) và một ma trận đường chéo hình chữ nhật của các giá trị đặc biệt ( Σ ).
+    - PCA và SVD có kết quả cùng dạng với  sự phân hủy eigen của C , chúng ta có thể dễ dàng nhận thấy mối quan hệ 
+giữa giá trị đơn ( Σ ) và giá trị riêng ( Λ ).
+    - Trên thực tế, hầu hết các triển khai PCA thực sự sử dụng thực hiện SVD ẩn hơn là thực hiện phân hủy eigen trên 
+ma trận hiệp phương sai vì SVD có thể hiệu quả hơn nhiều và có thể xử lý các ma trận thưa thớt. Ngoài ra, có những 
+dạng SVD đã được giảm thiểu, thậm chí còn kinh tế hơn để tính toán.
