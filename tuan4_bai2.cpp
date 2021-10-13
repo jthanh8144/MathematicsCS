@@ -34,7 +34,7 @@ void Append(MatrixXd &a, MatrixXd b, int k) {
     int col = a.cols();
     for (int i = 0; i < col; i++) {
         a(k, i) = b(0, i);
-    } // lỗi
+    }
 }
 
 // --------------- main ---------------
@@ -123,7 +123,7 @@ int main() {
         for (int j = 0; j < m; j++) {
             cout << "A(" << i << ", " << j << ") = "; cin >> A(i, j);
         }
-    } // fail u
+    }
     svd(A);
     return 0;
 }

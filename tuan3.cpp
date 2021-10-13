@@ -220,9 +220,6 @@ haiMaTran QR(double **a, int n) {
         double **H = MTDV(n);
         double *t = new double [n - i];
         int index = 0;
-        // for (int j = 0; j < n; j++) {
-        //     t[j] = 0;
-        // }
         for (int j = i; j < n; j++) {
             t[index++] = a[j][i];
         }
