@@ -1,0 +1,8 @@
+Ứng dụng của thuật toán Gradient Descent:
+- Thuật toán Gradient Descent dùng để tìm ra số điểm mà hàm số
+đạt cực tiểu chứ không phải đạt giá trị nhỏ nhất. Đối với hàm
+số có nhiều cực tiểu thì tùy thuộc vào vị trí cchonj ban đầu
+ta có thể tìm được kết quả khác nhau.
+- Ứng dụng trong một số bài toán thực tế như: dự đoán huyết áp
+tâm thu của những người ở độ tuổi khác nhau, ước tính giá nhà
+phụ thuộc vào các yếu tố: diện tích, số phòng, gần trung tâm...

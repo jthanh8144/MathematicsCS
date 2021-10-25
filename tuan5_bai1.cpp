@@ -42,7 +42,7 @@ void find(int l, int r) {
     find(l, m);
     find(m+1, r);
 
-    static point *t = new point [n*n];
+    static point *t = new point [2*n];
     merge(a+l, a+m+1, a+m+1, a+r+1, t, cmp_y);
     copy(t, t+r-l+1, a+l);
     int tm = 0;
@@ -69,3 +69,10 @@ int main() {
         << " giua hai diem (" << x.x << ", " << x.y << ") va (" << y.x << ", " << y.y << ")";
     return 0;
 }
+
+/*
+Thuật toán:
+B1: Sắp xếp N điểm theo x rồi thành 2 tập hợp bằng đường thẳng x = a
+B2: Gọi đệ quy tìm cặp điểm gần nhất cho tập bên trái và tập bên phải. Sau khi gọi đệ quy có được khoảng cách giữa cặp điểm gần nhất là D.
+B3: Sắp xếp theo y rồi tìm khoảng cách ngắn nhất giữa một điểm thuộc tập bên trái và một điểm thuộc tập bên phải. Chỉ cần xét những điểm có |x_i - a| < D vì các điểm bên ngoài khoảng đó chắc chắn sẽ có khoảng cách lớn hơn D.
+*/
