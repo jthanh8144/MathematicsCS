@@ -63,8 +63,8 @@ int main() {
 
 /*
 Thuật toán:
-- Tìm một điểm chắc chắn thuộc về bao lồi (điểm có x nhỏ nhất) làm tâm O (origin)
-- Sắp xếp các điểm còn lại theo góc. Góc của điểm A là góc tạo bởi tia OA và phương ngang.
-- Dùng một stack có tính chất bag (bao) của ba điểm liên tiếp theo thứ tự. Lần lượt chèn các điểm theo thứ tự đã sắp xếp trước đó từ đỉnh số 1 đến đỉnh n + 1 (với a[n + 1] = a[1]) và kiểm tra tính bag của stack đó. 
-- Sau khi kết thúc vòng lặp ta thu được stack chứa các điểm thuộc bao lồi
+B1: Tìm một điểm chắc chắn thuộc về bao lồi (điểm có x nhỏ nhất) làm tâm O (origin)
+B2: Sắp xếp các điểm còn lại theo góc. Góc của điểm A là góc tạo bởi tia OA và phương ngang.
+B3: Dùng một stack có tính chất bag (bao) của ba điểm liên tiếp theo thứ tự. Lần lượt chèn các điểm theo thứ tự đã sắp xếp trước đó từ đỉnh số 1 đến đỉnh n + 1 (với a[n + 1] = a[1]) và kiểm tra tính bag của stack đó. 
+B4: Sau khi kết thúc vòng lặp ta thu được stack chứa các điểm thuộc bao lồi
 */
