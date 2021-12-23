@@ -28,7 +28,7 @@ void Bai2() {
             if (i % j == 0) sum += j;
         }
         if (sum == i) cout << i << " ";
-    }
+    }   
 }
 
 void Bai() {
@@ -70,10 +70,10 @@ void Bai4() {
 }
 
 int main() {
-    Bai1();
-    Bai2();
-    Bai();
-    Bai3();
-    Bai4();
+    // Bai1();
+    // Bai2();
+    // Bai();
+    // Bai3();
+    // Bai4();
     return 0;
 }

@@ -47,9 +47,9 @@ void gradient_descent(MatrixXd x, MatrixXd y, int loop = 20000, double esilon = 
 
 int main() {
     MatrixXd x(4, 5);
-    x << 1, 2, 3, 4, 5, 0, 2, 4, 6, 8, 1, 3, 5, 7, 9, 5, 10, 15, 20, 25;
+    x << 1, 2, 3, 4, 5, 0, 2, 4, 6, 8, 1, 3, 5, 7, 9, 5, 10, 15, 20, 25; // 3x5 = 20
     MatrixXd y(1, 4);
-    y << 15, 20, 25, 75;
+    y << 15, 20, 25, 75; // 4 bien khoi tao
     gradient_descent(x, y);
     return 0;
 }

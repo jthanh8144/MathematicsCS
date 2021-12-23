@@ -2,7 +2,7 @@ import numpy as np
 np.random.seed(2)
 
 def cost(w):
-	return .5/Xbar.shape[0]*np.linalg.norm(y - Xbar.dot(w), 2)**2;
+	return .5/Xbar.shape[0]*np.linalg.norm(y - Xbar.dot(w), 2)**2
 
 def grad(w):
 	return 1/Xbar.shape[0] * Xbar.T.dot(Xbar.dot(w) - y)
@@ -34,12 +34,6 @@ def SGD(w_init, grad, eta):
                     return w
                 w_last_check = w_this_check
     return w
-
-X = np.random.rand(1000, 1)
-y = 4 + 3 * X + .2*np.random.randn(1000, 1)
-
-one = np.ones((X.shape[0],1))
-Xbar = np.concatenate((one, X), axis = 1)
 
 w_init = np.array([[2], [1]])
 w = SGD(w_init, grad, .1)

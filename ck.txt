@@ -1,12 +1,18 @@
 Điều kiện để ma trận A tồn tại chỉ số riêng và vecto riêng
 - Là ma trận vuông, không suy biến.
 - Ma trận A tồn tại chỉ số riêng và ma trận riêng khi và chỉ khi đa thức đặc trưng của A có nghiệm trên tập xác định.
+Điều kiện để ma trận có nghịch đảo:
+- Là ma trận vuông không suy biến (det != 0)
 
 
-bai2_2 => svd
+bai2_2 => svd + điều kiện phân rã + thuật toán
 bai2 => cholesky và điều kiện cholesky
 bai3 => gradient descent gk
+phanrasnt => phân rã số thành tích các số nguyên tố
 svd
+tuan1:
+    bai3 => in ra số nguyên tố nhỏ hơn n
+    bai4 => tính ước chung lớn nhất
 tuan2_bai1 => a mũ m mod n
 tuan2_bai2 => tính ma trận nghịch đảo
 tuan3 => phân rã ma trận theo vecto riêng và chỉ số riêng
@@ -14,10 +20,11 @@ tuan4_bai1 => phân rã cholesky
 tuan4_bai2 => phân rã svd (sai)
 tuan5_bai1 => tìm khoảng cách ngắn nhất trong tập hợp điểm
 tuan5_bai2 => bao lồi
-tuan6 => gradient descent
+tuan6 => gradient descent đa biến
 
 tuan8:
     miniGD.py
     NAG.py
     SGD.py
     simplex.py
+    simplex2.py

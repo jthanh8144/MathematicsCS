@@ -35,12 +35,6 @@ def MiniGD(w_init, grad, eta):
                 w_last_check = w_this_check
     return w
 
-X = np.random.rand(1000, 1)
-y = 4 + 3 * X + .2*np.random.randn(1000, 1)
-
-one = np.ones((X.shape[0],1))
-Xbar = np.concatenate((one, X), axis = 1)
-
 w_init = np.array([[2], [1]])
 w = MiniGD(w_init, grad, .1)
 

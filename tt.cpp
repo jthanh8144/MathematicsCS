@@ -1,42 +1,36 @@
 #include <iostream>
-#include <algorithm>
-#include <Eigen/Eigenvalues>
-#include <Eigen/Core>
+#include <math.h>
 
 using namespace std;
-using namespace Eigen;
 
-void svd(MatrixXd A) {
-    EigenSolver<MatrixXd> es1(A * A.transpose());
-    MatrixXd U = es1.pseudoEigenvectors();
-    EigenSolver<MatrixXd> es2(A.transpose() * A);
-    MatrixXd V = es2.pseudoEigenvectors();
+long double Cost(long double x) {
+    return pow((exp(x) + 3*x - 10), 2) + x*x;
+}
 
-    MatrixXd temp;
-    if (A.rows() > A.cols()) {
-        temp = es2.pseudoEigenvalueMatrix();
-    } else {
-        temp = es1.pseudoEigenvalueMatrix();
+long double Grad(long double x) {
+    return 2*exp(x*x) + (6*x-14) * exp(x) + 20*x -60;
+}
+
+long double NAG(long double x0, long double alpha = 0.1, long double beta = 0.9, long double esilon = 1e-4, long double loop = 10000) {
+    long double x = x0;
+    long double v = 0;
+    int i;
+    for (i = 0; i < loop; i++) {
+        long double v_new = beta * v + alpha * Grad(x);
+        long double x_new = x - v_new;
+        if (fabs(x - x_new) < esilon) {
+            break;
+        }
+        x = x_new;
+        v = v_new;
     }
-    MatrixXd S(1, temp.cols());
-    for (int i = 0; i < temp.rows(); i++) {
-        S(0, i) = sqrt(temp(i, i));
-    }
-    cout << endl << "U:" << endl << U << endl;
-    cout << "S: " << endl << S << endl;
-    cout << "V:" << endl << V.transpose() << endl;
+    cout << "So lan lap: " << i << endl;
+    return x;
 }
 
 int main() {
-    int n, m;
-    cout << "Nhap n = "; cin >> n;
-    cout << "Nhap m = "; cin >> m;
-    MatrixXd A(n, m);
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            cout << "A(" << i << ", " << j << ") = "; cin >> A(i, j);
-        }
-    }
-    svd(A);
+    long double x0 = 1.5;
+    long double x_min = NAG(x0, 0.9, 0.1, 1e-5, 100);
+    cout << "Gia tri nho nhat cua ham so la: " << Cost(x_min) << " tai diem x = " << x_min << endl;
     return 0;
 }

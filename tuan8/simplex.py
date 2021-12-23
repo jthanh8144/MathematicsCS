@@ -66,7 +66,7 @@ A = [
     [ 1, 0, 0, 1, 0],
     [ 0, 1, 0, 0, 1]
 ]
-b = [2, 4, 4]
+b = [2, 4, 4]   
     
 solution = simplex(c, A, b)
 print('solution: ', solution)

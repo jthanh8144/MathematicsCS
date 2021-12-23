@@ -20,3 +20,4 @@ def NAG(theta_init, alpha = 0.1, beta = 0.9, esilon = 1e-4, loop = 10000):
 
 (x, it) = NAG(5)
 print('x = %f, cost = %f, i = %d'%(x[-1], cost(x[-1]), it))
+
